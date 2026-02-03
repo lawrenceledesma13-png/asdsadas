@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine’s Day ❤️</title>
+<style>
+body{margin:0;background:linear-gradient(135deg,#ffb3c6,#ffe5ec);font-family:"Segoe UI",Arial,sans-serif;text-align:center;padding-top:60px;overflow-x:hidden;overflow-y:hidden;position:relative}
+.heart{position:fixed;bottom:-20px;color:#ff2f6d;font-size:22px;animation:floatUp 8s linear infinite,beat 1s infinite alternate;opacity:0.7;filter:drop-shadow(0 0 8px rgba(255,47,109,0.7));pointer-events:none}
+@keyframes floatUp{from{transform:translateY(0);opacity:1}to{transform:translateY(-115vh);opacity:0}}
+@keyframes beat{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
+#intro{cursor:pointer}
+.envelope-container{position:relative;width:60vw;max-width:400px;height:35vw;max-height:250px;margin:auto;animation:shake 3s infinite;filter:drop-shadow(0 0 20px #ff6f91)}
+@keyframes shake{0%,100%{transform:rotate(0deg)}25%{transform:rotate(1.5deg)}50%{transform:rotate(-1.5deg)}75%{transform:rotate(1.5deg)}}
+.envelope{width:100%;height:100%;background:linear-gradient(135deg,#ff3f7f,#ff6f91);border-radius:18px;overflow:hidden;box-shadow:0 20px 50px rgba(255,63,127,0.55);transition:0.5s all;animation:glow 2s infinite alternate}
+@keyframes glow{0%{box-shadow:0 0 25px rgba(255,63,127,0.5)}50%{box-shadow:0 0 40px rgba(255,63,127,0.8)}100%{box-shadow:0 0 25px rgba(255,63,127,0.5)}}
+.flap{position:absolute;top:0;left:0;width:0;height:0;border-left:50% solid transparent;border-right:50% solid transparent;border-bottom:45% solid #ff9ab8;transform-origin:top;transition:transform 1.2s ease}
+.letter{position:absolute;width:88%;height:70%;top:12%;left:6%;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:6vw;font-weight:bold;color:#ff2f6d;box-shadow:0 12px 30px rgba(0,0,0,0.15);transition:transform 1.3s ease}
+.open .flap{transform:rotateX(180deg)}
+.open .letter{transform:translateY(-175%)}
+#intro p{margin-top:20px;font-size:4vw;color:#7a1e3a;font-weight:500}
+#card{display:none;margin-top:35px}
+.card-wrapper{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:15px;padding:10px}
+.side-image{width:20vw;max-width:120px;border-radius:15px;box-shadow:0 10px 25px rgba(0,0,0,0.2)}
+.card{background:linear-gradient(135deg,#ffffff,#fff0f6);padding:5vw;border-radius:8vw;max-width:80vw;box-shadow:0 10px 30px rgba(255,47,109,0.35);animation:fadeIn 1.8s ease;text-align:center}
+.card .image-container{position:relative;margin-bottom:3vw}
+img.card-img{width:80vw;max-width:250px;border-radius:5vw;box-shadow:0 8px 25px rgba(0,0,0,0.25)}
+.name-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:10vw;font-weight:bold;text-shadow:0 0 10px rgba(255,255,255,0.6),2px 2px 8px rgba(0,0,0,0.5)}
+h1{color:#ff2f6d;font-size:6vw;margin:2vw 0}
+p{color:#6b1f3a;font-size:4vw}
+@media(min-width:768px){.letter{font-size:32px}h1{font-size:32px}p{font-size:20px}.side-image{max-width:150px}img.card-img{max-width:330px}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div id="intro" onclick="openEnvelope()">
+    <div class="envelope-container" id="env">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="letter">💌</div>
+        </div>
+    </div>
+    <p>Click to open 💕</p>
+</div>
+<div id="card">
+    <div class="card-wrapper">
+        <img src="https://i.pinimg.com/736x/4d/ab/a2/4daba2a615028aa99564941167170e18.jpg" alt="Left Flower" class="side-image">
+        <div class="card">
+            <div class="image-container">
+                <img src="https://images.playground.com/a9b79873-e668-4b44-bc26-21ca998b6c90.jpeg" alt="Flowers" class="card-img">
+            </div>
+            <h1>Happy Valentine’s Day, Adrii ❤️</h1>
+            <p>Just a little reminder that you’re deeply appreciated 🌸</p>
+        </div>
+        <img src="https://i.pinimg.com/736x/85/24/a4/8524a4976d9ef3f8186f1295acdef820.jpg" alt="Right Flower" class="side-image">
+    </div>
+</div>
+<script>
+setInterval(()=>{const heart=document.createElement("div");heart.className="heart";heart.innerHTML="💖";heart.style.left=Math.random()*100+"vw";heart.style.fontSize=Math.random()*20+18+"px";document.body.appendChild(heart);setTimeout(()=>heart.remove(),8000)},500);
+const floatImages=["https://www.creativefabrica.com/wp-content/uploads/2021/01/10/Valentines-Day-Hearts-Png-Graphics-7687108-1-580x387.jpg"];
+setInterval(()=>{const img=document.createElement("img");img.src=floatImages[Math.floor(Math.random()*floatImages.length)];img.style.position="fixed";img.style.width=Math.random()*40+20+"px";img.style.left=Math.random()*100+"vw";img.style.bottom="-50px";img.style.zIndex="10";img.style.pointerEvents="none";img.style.opacity=0.8;img.style.transform=`rotate(${Math.random()*360}deg)`;document.body.appendChild(img);const duration=Math.random()*5000+5000;img.animate([{transform:`translateY(0) rotate(${Math.random()*360}deg)`,opacity:1},{transform:`translateY(-120vh) rotate(${Math.random()*360}deg)`,opacity:0}],{duration:duration,easing:"linear"});setTimeout(()=>img.remove(),duration)},800);
+function openEnvelope(){document.getElementById("env").style.animation="none";document.querySelector(".envelope").classList.add("open");for(let i=0;i<35;i++){const sparkle=document.createElement("div");sparkle.className="sparkle";sparkle.style.left="50%";sparkle.style.top="50%";sparkle.style.setProperty("--x",`${Math.random()*260-130}px`);sparkle.style.setProperty("--y",`${Math.random()*260-130}px`);document.body.appendChild(sparkle);setTimeout(()=>sparkle.remove(),1100)}setTimeout(()=>{document.getElementById("intro").style.display="none";document.getElementById("card").style.display="block"},1500)}
+</script>
+</body>
+</html>
